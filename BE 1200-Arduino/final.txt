@@ -1,0 +1,26 @@
+int pinButton = 2;
+int leds[] = {6,7,8};
+
+
+void setup() {
+      pinMode(pinButton, INPUT);
+      for (int i = 0; i < 3; i++) {
+            pinMode(leds[i], OUTPUT);
+      }
+}
+
+void loop() {
+      int state = digitalRead(pinButton);
+
+      if (state == 0) {
+            for (int i = 0; i < 3; i++) {
+                  digitalWrite(leds[i], HIGH);
+            } 
+      }
+
+      else {
+            for (int i = 0; i < 3; i++) {
+                  digitalWrite(leds[i], LOW);
+            }
+      }
+}
