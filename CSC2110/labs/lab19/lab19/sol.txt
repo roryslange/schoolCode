@@ -1,0 +1,77 @@
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+void bubbleSort(float list[], int length)
+{
+    float temp;
+
+    for (int iteration = 1; iteration < length; iteration++)
+    {
+        for (int index = 0; index < length - iteration; index++)
+        {
+            if (list[index] > list[index + 1])
+            {
+                temp = list[index];
+                list[index] = list[index + 1];
+                list[index + 1] = temp;
+            }
+        }
+    }
+}
+
+int seqSearch(const float list[], int listLength, int searchItem)
+{
+    int loc;
+    bool found = false;
+    loc = 0;
+
+    while (loc < listLength && !found)
+    {
+        if (list[loc] == searchItem)
+            found = true;
+        else
+            loc++;
+    }
+    if (found)
+    {
+        cout << "The element was found in position " << loc << " using sequential search.";
+        return loc;
+    }
+    else
+        return -1;
+}
+
+int main()
+{
+    int userInput;
+    float arr[10];
+    int len = sizeof(arr) / sizeof(arr[0]);
+    cout << "Searching app!" << endl;
+    cout << "-----------------" << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        cout << "Enter a Positive Number (or a negative number to stop): ";
+        cin >> arr[i];
+        if (arr[i] < 0)
+        {
+            break;
+        }
+    }
+
+    bubbleSort(arr, len);
+    int i;
+    for (i = 0; i < len; i++)
+        cout << " " << arr[i];
+    cout << endl;
+
+    cout << "Search for a value in the list: ";
+    cin >> userInput;
+    seqSearch(arr, len, userInput);
+
+}

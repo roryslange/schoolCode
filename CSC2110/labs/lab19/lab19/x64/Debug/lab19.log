@@ -1,0 +1,5 @@
+﻿  lab19.cpp
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab19\lab19\lab19.cpp(35,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab19\lab19\lab19.cpp(51,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab19\lab19\lab19.cpp(51,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  lab19.vcxproj -> C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab19\x64\Debug\lab19.exe

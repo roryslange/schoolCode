@@ -1,0 +1,3 @@
+﻿  lab11Question1.cpp
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab11Question1\lab11Question1\lab11Question1.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  lab11Question1.vcxproj -> C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab11Question1\Debug\lab11Question1.exe

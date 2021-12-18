@@ -1,0 +1,10 @@
+what years were us forces in afghanistan? 2001-2021 1 points
+what years was donald trump president? 2016-2020 2 points
+when did the civil war take place? 1861-1865 8 points
+what years was barack obama president? 2008-2016 4 points
+how many reps does a state typically have in the united States? 1-53 5 points
+
+
+also i saw on the rubric for assignment 4 that my program could not compile, I am updated to a
+newer version of visual studio so that might be affecting the compiler
+I am able to compile both assignment 5, assignment 4, and assignment 3 perfectly fine

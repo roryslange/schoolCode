@@ -1,0 +1,4 @@
+﻿  lab20.cpp
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab20\lab20\lab20.cpp(26,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab20\lab20\lab20.cpp(71,31): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  lab20.vcxproj -> C:\Users\rorys\OneDrive - Wayne State University\CSC2110\labs\lab20\x64\Debug\lab20.exe

@@ -1,0 +1,14 @@
+CSC 2110 Group Project Checkup
+
+Project Group: Caleb Choi, Rory Lange, Anthony Quinteros, Jaheda Lima, Joseph Brooks
+Project checkup written by Rory Lange and Caleb Choi
+
+Anthony created a repository for the Project
+Joseph and Anthony worked together on creating the classes and definitions for members
+Caleb, Jaheda, and Rory plan to write the main.cpp, project checkup, and fix apparent bugs
+
+so far we have completed header and cpp files, all that is left is to put everything together,
+finish main.cpp and fix any bugs that are left in the project
+
+we have been meeting periodically through discord and talking to each other about the project
+and how we are going to solve each task

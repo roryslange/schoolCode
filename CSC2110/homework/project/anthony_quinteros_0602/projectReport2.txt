@@ -1,0 +1,8 @@
+since the last report on our progress we have made more contributions to the project
+The attendee list and attendee classes are almost finished
+we have been working collectively to write code and fix bugs in the code
+just a few bugs, rewriting and reviewing needs to be done before we are ready
+to turn in the project
+anthony and john have written most of the header and source files
+Caled Jaheda and I have been correcting errors, reviewing code, and writing the progress reports
+we will probably be ready to submit the project soon

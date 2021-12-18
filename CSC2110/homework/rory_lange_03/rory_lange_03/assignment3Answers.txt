@@ -1,0 +1,3 @@
+how many megabytes in a gigabyte? answer=1000
+How many times had Rafael Nadal won the French Open by March 2020? answer=12
+In what year was the Corvette introduced? answer=1953
