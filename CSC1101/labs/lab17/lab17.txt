@@ -1,0 +1,43 @@
+//==========================================================
+//This is the header information
+//
+// Title:      random array even or odd
+// Course:     CSC 1101
+// Lab Number: lab 17
+// Author:     rory lange
+// Date:       3/30/21
+// Description: This assignment focuses on creating an array of
+// size 20, populating the array with random numbers, counting the 
+// number of even and odd numbers in the array, and displaying 
+// the result
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+#include<cmath>//For math equations
+#include<time.h>
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+int main()
+{
+	//Creates seed for random numbers
+	srand(time(NULL));
+
+	//declare variables
+	const int arrSize = 20;
+	int arr[arrSize];
+	int even = 0;
+	int odd = 0;
+
+	for (int i = 0; i < arrSize; i++) {
+		arr[i] = rand()%20;
+		if (arr[i] % 2 == 0)
+			even++;
+		else
+			odd++;
+		cout << arr[i] << " ";
+	}
+	cout << endl << "Even numbers: " << even << endl;
+	cout << "Odd numbers: " << odd << endl;
+}

@@ -1,0 +1,73 @@
+//==========================================================
+//
+// Title:      lab10
+// Course:     CSC 1101
+// Lab Number: 10
+// Author:     rory lange
+// Date:       2/18/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+
+
+int main() {
+
+	//header 
+	cout << "Password Penguins Password Checker" << endl;
+	cout << "-----------------------------------" << endl;
+
+	//variables
+	string password;
+	int length = password.length();
+	int characters = 0;
+	int digits = 0;
+	int punct = 0;
+	int i = 0;
+	
+	const int w = 25;
+	const int w1 = 15;
+	const int minLength = 7;
+	const int minDigits = 2;
+	
+
+	cout << "Enter the password: ";
+	getline(cin, password);
+	cout << endl;
+	
+	while (i < password.length()) {
+		if (isdigit(password[i]))
+			digits++;
+		else if (isalpha(password[i]))
+			characters++;
+		else if (ispunct(password[i]))
+			punct++;
+		cout << password[i] << endl;
+		i++;
+	}
+	cout << endl;
+
+	bool valid = (length <= minLength) && (digits <= minDigits) ? false : true;
+
+	cout << setw(w) << left << "Password: " << setw(w1) << right << password << endl;
+	cout << setw(w) << left << "Digits: " << setw(w1) << right << digits << endl;
+	cout << setw(w) << left << "Letters: " << setw(w1) << right << characters << endl;
+	cout << setw(w) << left << "Punctuation: " << setw(w1) << right << punct << endl << endl;
+
+	if (valid == true)
+		cout << "Password is Valid" << endl << endl;
+	else
+		cout << "Password is Invalid" << endl << endl;
+
+	//ending 
+	cout << "End of calculations for password penguins" << endl;
+
+}

@@ -1,0 +1,15 @@
+rims
+tires
+steering
+lights
+electronics
+clutch
+rollcage
+airbags
+engine
+transmission
+windows
+chassis
+fenders
+doors
+flywheel

@@ -1,0 +1,145 @@
+//==========================================================
+//
+// Title:      SKU Sentries
+// Course:     CSC 1101
+// Lab Number: 16-1
+// Author:     rory lange
+// Date:       3/26/21
+// Description:
+//   This C++ console application generates stock keeping 
+// units (SKUs) for selected car data.  A SKU is an 
+// alphanumeric code created by retailers to track their 
+// products.  Unlike other codes, a SKU may be any length
+// or format.  The car data comes from included file 
+// CarData.txt which contains a header row and 5K detail 
+// rows.  Here is the specification for the file:
+//
+//   Field         Type     Start   End
+//   ID            string       0     9
+//   Name          string      10    65
+//   Year          string      66    75
+//   Seats         string      76    82
+//   Fuel          string      83    94
+//   Transmission  string      95   104
+//
+// The application reads this file and writes another file.
+// It attempts to open the input file.  If it doesn't open,
+// it prints an error message and ends the application.  If
+// it does open, it attempts to open the output file.  If it
+// doesn't open, the application prints an error message and
+// ends the application.  If it does open, it reads past the
+// header row in the input file and prints a message that the
+// application is reading from the input file and writing to
+// the output file.  The application loops through the input
+// file, reads each line at a time, and updates the number 
+// of lines read.  For each line, it uses the substr function
+// to parse it into its six fields: ID, name, year, seats, 
+// fuel, and transmission. If the name begins with "Ford",
+// it generates a SKU for the car that concatenates the 
+// following parts:
+//   "FRD-"
+//   The last two digits of year field.
+//   "-S" followed by the first character of seats field.
+//   "F" followed by the first character of fuel field.
+//   "T" followed by the first character of transmission field.
+//
+// It updates the number of SKUs generated.  If the number 
+// generated is a multiple of 10, it prints the ID, SKU, and
+// full name for the car.  For every generated SKU, the 
+// application writes the ID, SKU, and full name for the 
+// car.  After the read loop, it prints the number of lines
+// read and written, and closes the files.
+//
+//==========================================================
+#include <cstdlib>  // For several general-purpose functions
+#include <fstream>  // For file handling
+#include <iomanip>  // For formatted output
+#include <iostream>  // For cin, cout, and system
+#include <string>  // For string data type
+using namespace std;  // So "std::cout" may be abbreviated to "cout"
+
+//==========================================================
+// Globals constants
+//==========================================================
+
+const string ReadFileName = "CarData.txt";
+const string WriteFileName = "CarDataWithSKUs.txt";
+
+//==========================================================
+// create SKU
+//==========================================================
+
+string make_SKU (string year, string seats, string fuel, string trans, string name = "FRD") {
+	string SKU;
+	SKU = name + "-" + year + "-S" + seats + "F" + fuel + "T" + trans;
+	return SKU;
+}
+
+//==========================================================
+// main
+//==========================================================
+int main()
+{
+	//header
+	cout << "Welcome to SKU Sentries" << endl;
+	cout << "-----------------------" << endl << endl;
+
+	ofstream outputFile;
+	ifstream inputFile;
+	outputFile.open(WriteFileName);
+	inputFile.open(ReadFileName);
+	string line;
+	string id;
+	string year;
+	string seats;
+	string fuel;
+	string trans;
+	string SKU;
+	int lineCount = 2;
+	int skuCount = 1;
+
+	if (!inputFile.is_open())
+		cout << "input not working" << endl;
+	if (!outputFile.is_open())
+		cout << "output not working" << endl;
+	else {
+		getline(inputFile, line);
+		outputFile << left << setw(10) << line.substr(0, 5) << left << setw(15) << "SKU" << line.substr(10) << endl;
+
+		cout << "Reading lines from file " << ReadFileName << endl;
+		cout << "Writing lines to file " << WriteFileName << endl << endl;
+
+		while (inputFile.good() && outputFile.good()) {
+			getline(inputFile, line);
+
+			if (line.substr(10, 4) == "Ford") {
+				skuCount++;
+				id = line.substr(0, 4);
+				year = line.substr(68, 2);
+				seats = line.substr(76, 1);
+				fuel = line.substr(83, 1);
+				trans = line.substr(95, 1);
+				SKU = make_SKU(year, seats, fuel, trans);
+				cout << left << setw(17) << SKU << line.substr(10, 55) << endl;
+				if (skuCount % 10 == 0)
+					outputFile << left << setw(10) << id << left << setw(15) << SKU << left << line.substr(10) << endl;
+			}
+
+			lineCount++;
+		}
+		
+		cout << endl << lineCount << " lines read." << endl;
+		cout << skuCount << " SKUs created." << endl << endl;
+
+		//ending
+		cout << "End of SKU Sentries." << endl;
+	}
+		
+
+
+
+
+
+
+
+}

@@ -1,0 +1,109 @@
+//==========================================================
+//This is the header information
+//
+// Title:      Lab 01
+// Course:     CSC 1101
+// Lab Number: 1
+// Author:     Rory Lange
+// Date:       1/19/21
+// Description:
+//	 Tests students ability to set up a file, follow a 
+//   simple project, and communicate with the keyboard for 
+//   inputs and outputs. 
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int Menu();
+
+int main()
+{
+	//Declare Constants
+	const int COLM1 = 30;
+	const int COLM2 = 25;
+	const int COLM3 = 50;
+
+	// Declare variables
+	string name, accessID; // Quicker but less recommended way of declaration using same data type
+	string slogan;         // It is recommended to declare one variable per line regardless of type
+
+	int answer;			   
+	double experience;
+
+	// Show application header
+	cout << "Welcome to my Application!" << endl;
+	cout << "--------------------------" << endl;
+
+	// Write to screen
+	cout << "\nHi There!\n";
+	cout << "I am looking forward to working with you. ";
+	cout << "Lets have a great semester!" << endl << endl;
+
+	// Request user information
+	cout << "Enter your name: ";
+
+	// Store user information for later use
+	getline(cin, name);
+
+	cout << "Enter your access ID: ";
+	cin >> accessID;
+
+	cout << "Enter your number of years of programming experience: ";
+	cin >> experience;
+	cin.ignore(1000, '\n');
+
+	cout << "What's your personal slogan for 2021?: ";
+	getline(cin, slogan);
+	cout << endl;
+	//cin.ignore(1000, '\n');
+
+	// The variable answer stores the data obtained from the function Menu()
+	answer = Menu();
+
+	cout << setw(COLM1) << left << "Name: " << setw(COLM2) << left << name << endl;
+	cout << setw(COLM1) << left << "Access ID: " << setw(COLM1) << left << accessID << endl;
+	cout << setw(COLM1) << left << "Years of Experience: " << setw(COLM1) << left << experience << endl;
+	cout << setw(COLM1) << left << "Choice: " << setw(COLM1) << left << answer << endl << endl;
+	cout << setw(COLM1) << left << "Personal Slogan: " << setw(COLM3) << left << slogan << endl;
+	// Show application close
+	cout << "\nEnd of my Application" << endl;
+
+	return 0;
+}
+
+int Menu() {
+
+	// Declare a variable
+	int choice = 0;
+
+	do {
+		// Request user decision
+		cout << "Multiple Choice Question" << endl;
+		cout << "---------------------------------------------------------------------" << endl;
+		cout << "Which of the following is (are) true." << endl;
+		cout << "What is the effect of beginning or ending a line with the following: " << endl;
+		cout << "new line character(\\n), endl, or semi-colon(;)?\n";
+		cout << "---------------------------------------------------------------------" << endl;
+		cout << "1. '\\n' forces output to continue printing on a new line. \n";
+		cout << "2. endl forces output to continue printing on a new line." << endl;
+		cout << "3. ';' will make all the output";
+		cout << " print on the same line";
+		cout << endl;
+		cout << "4. All of the Above." << endl << endl;
+		cout << "Choice (Enter a selection from 1-4): ";
+
+		//Store user decision
+		cin >> choice;
+		cout << endl;
+	} while (choice < 1 || choice > 4);
+
+	if (choice != 4) cout << "Incorrect, but dont worry your answer will not count against you" << endl << endl;
+	else cout << "Correct!" << endl << endl;
+
+	return choice;
+}

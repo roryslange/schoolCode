@@ -1,0 +1,90 @@
+//==========================================================
+//This is the header information
+//
+// Title:      Wacky Winners
+// Course:     CSC 1101
+// Lab Number: 19
+// Author:     rory lange
+// Date:       4/6/21
+// Description: Use arrays to record the names of the students
+//  along with their GPAs. Print out all the names of the students
+//  with their related GPAs. Also print the name and gpa of the 
+//  best and worst student
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+#include<cmath> //For math equations
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+string getNames() {
+	string name;
+	cout << "Enter a students first and last name: ";
+	getline(cin, name);
+	return name;
+}
+float getGPAs() {
+	float gpa;
+	cout << "Enter the student's gpa: ";
+	cin >> gpa;
+	cin.ignore(200, '\n');
+	return gpa;
+}
+
+int main() {
+
+	cout << "Welcome to Wacky Winners" << endl;
+
+	const int NUM_STUDENTS = 5;
+	const int COLM1 = 30;
+	const int COLM2 = 10;
+
+	//Declare Arrays
+	string students[NUM_STUDENTS];
+	float gpa[NUM_STUDENTS];
+
+	//Declare variables
+	//initialize best and worst student positions in arrays for comparisons
+
+	float gpaHigh = 0;
+	float gpaLow = 5;
+	int highIndex;
+	int lowIndex;
+	
+	
+	
+
+	//Prompt users for names and grades
+	for (int i = 0; i < NUM_STUDENTS; i++) {
+		students[i] = getNames();
+		gpa[i] = getGPAs();
+		cout << endl;
+
+		//compare the GPAs of the students and record the best and worst GPA
+		if (gpa[i] > gpaHigh) {
+			gpaHigh = gpa[i];
+			highIndex = i;
+		}
+		if (gpa[i] < gpaLow) {
+			gpaLow = gpa[i];
+			lowIndex = i;
+		}
+	}
+
+
+	cout << left << setw(COLM1) << "Student Names" << right << setw(COLM2) << "GPA" << endl;
+
+	for (int i = 0; i < NUM_STUDENTS; i++) {
+		//Print out all the student names and GPAs
+		cout << left << setw(COLM1) << students[i] << right << setw(COLM2) << gpa[i] << endl;
+	}
+
+	//Print out the name and GPA of the winning and lossing student
+
+	cout << endl << "the top student award goes to: " << students[highIndex] << " with a gpa of " << gpa[highIndex] << endl;
+	cout << "the following student will be subjected to summer school: " << students[lowIndex] << " with a gpa of " << gpa[lowIndex] << endl;
+
+	cout << "Thank you for participating with Wacky Winners!!" << endl << endl;
+}

@@ -1,0 +1,166 @@
+//==========================================================
+//
+// Title:      Part Pretenders
+// Course:     CSC 1101
+// Lab Number: 20-1
+// Author:     rory lange  
+// Date:       4/8/21
+// Description:
+//   This C++ console application manages part names.  It 
+// declares string array parts of size eight, and stores 
+// eight parts in it.  It presents the following menu to the
+// user:
+//
+//   Part Pretenders Menu
+//   1 - List car parts
+//   2 - Sort car parts
+//   3 - Search car parts
+//   9 � Exit
+//
+//   Enter an option :
+//
+// It continues to read and process menu options until the 
+// user enters the sentinel value of 9.
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+//==========================================================
+// Globals
+//==========================================================
+
+const int ArrSize = 8;
+string parts[] = {"transmission", "engine", "electronics", "doors", "windows", "wheels", "steering", "brakes"};
+
+//==========================================================
+// binarySearchParts
+//==========================================================
+
+int binarySearchParts(string parts[], int arraySize, string key) {
+    //sortParts(parts, arraySize);
+    int min = 0;
+    int index;
+    int max = arraySize - 1;
+
+    while (min <= max) {
+        //midpoint
+        index = (min + max) / 2;
+        
+        if (parts[index] == key)
+            return index;
+        else if (parts[index] < key)
+            min = index + 1;
+        else
+            max = index - 1;
+    }
+    return -1;
+}
+
+//==========================================================
+// menuOption
+//==========================================================
+
+int menuOption() {
+    int input;
+
+    cout << "Part Pretenders Menu" << endl;
+    cout << "1 - List car parts" << endl;
+    cout << "2 - Sort car parts" << endl;
+    cout << "3 - Search car parts" << endl;
+    cout << "9 - Exit" << endl << endl;
+    cout << "Enter an option: ";
+    cin >> input;
+
+    return input;
+}
+
+//==========================================================
+// listParts
+//==========================================================
+
+void listParts(string parts[], int arraySize) {
+    cout << "Part List" << endl << endl;
+
+    for (int i = 0; i < arraySize; i++) {
+        cout << parts[i] << endl;
+    }
+
+    cout << endl << "Part count: " << arraySize << endl << endl;
+}
+
+//==========================================================
+// searchParts
+//==========================================================
+
+void searchParts(string parts[], int arraySize) {
+    string input;
+    int index = 0;
+    cout << "Enter a part to search for (no spaces): ";
+    cin >> input;
+
+    index = binarySearchParts(parts, 8, input);
+
+    if (index == -1)
+        cout << "'" << input << "'" << " was not found int the array." << endl << endl;
+    else
+        cout << "'" << input << "'" << " was found at index " << index << "." << endl << endl;
+}
+
+//==========================================================
+// sortParts
+//==========================================================
+
+void sortParts(string parts[], int arraySize) {
+    string temp;
+    int j;
+    string key;
+
+    for (int i = 1; i < arraySize; i++) {
+        j = i - 1;
+        key = parts[i];
+
+        while (j >= 0 && parts[j] > key) {
+            parts[j + 1] = parts[j];
+            j = j - 1;
+        }
+
+        parts[j + 1] = key;
+    }
+}
+
+//==========================================================
+// main
+//==========================================================
+
+int main() {
+    //header
+    cout << "Welcome to Part Pretenders" << endl << endl;
+
+    //variables
+    int input = menuOption();
+
+    //sentinel
+    while (input != 9) {
+        
+        switch(input) {
+            case 1:
+                listParts(parts, ArrSize);
+                break;
+            case 2:
+                sortParts(parts, ArrSize);
+                break;
+            case 3:
+                searchParts(parts, ArrSize);
+                break;
+        }
+        input = menuOption();
+    }
+
+    //exit
+    cout << "END OF PART PRETENDERS" << endl;
+}

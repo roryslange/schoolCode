@@ -1,0 +1,85 @@
+//==========================================================
+//
+// Title:      Faraway Fantasies
+// Course:     CSC 1101
+// Lab Number: 12-1
+// Author:     Rory Lange
+// Date:       3/4/21
+// Description:
+//   This C++ console application reads data from file 
+// NearestStars.txt.  The file contains the ten nearest 
+// stars to Earth.  It has a header line and ten detail 
+// lines.  Each detail line contains two tokens:
+//   -Star name
+//   -Distance from Earth in light minutes(Sun) and light 
+//   years(all other stars).
+// It attempts to open the file.  If it doesn't open, it 
+// prints an error message.  If it does open, it prints a 
+// file-reading message, and three column headers:
+//   -Star
+//   -Distance
+//   -Time
+// The application reads through the file.  For each 
+// detail line, it reads the star name and distance.  It
+// calculates the time to travel to the star.  It then 
+// prints:
+//   -Star
+//   -Distance
+//   -Time
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+
+
+int main()
+{
+    const string fileName = "NearestStars.txt";
+    const int w = 20;
+    const int w1 = 15;
+    int lines = 1;
+    string star;
+    double distance;
+    double time;
+    double speed = .4;
+    double sunSpeed = 210240;
+
+    //header
+    cout << "Faraway Fantasies File Reader" << endl;
+    cout << "------------------------------------" << endl << endl;
+    cout << fixed << setprecision(6);
+
+    int line;
+    string text;
+    ifstream file;
+
+    file.open(fileName);
+
+    if (!file.is_open())
+        cout << "Error: File did not open properly" << endl;
+
+    else {
+
+        getline(file, text);
+
+
+        while (file.good()) {
+            file >> star;
+            file >> distance;
+            time = (star == "Sun") ? distance / sunSpeed : distance / speed;
+            cout << left << setw(w) << star << right << setw(w1) << distance << right << setw(w1) << time << " (hours)" << endl;
+            lines++;
+        }
+
+        cout << endl << "*distance to the sun is in light minutes. All other starts in light years" << endl << endl;
+        cout << lines << " lines read from file " << fileName << endl << endl;
+
+    }
+    
+    cout << "End of calculations for Faraway Fantasies.";
+}

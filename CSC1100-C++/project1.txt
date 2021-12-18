@@ -1,0 +1,153 @@
+//Project 1 created by Rory Lange on 2/26/21 for CSC1100
+
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+
+
+void projectionParameters(int value, double tax, int renters, int months, int w, int w1) {
+	cout << "Projection Parameters" << endl;
+	cout << "-----------------------------------------------------------------" << endl;
+
+	cout << left << setw(w) << "Property Value ($): " << right << setw(w1) << value << endl;
+	cout << left << setw(w) << "Property Tax Rate (%): " << right << setw(w1) << tax << endl;
+	cout << left << setw(w) << "Renters: " << right << setw(w1) << renters << endl;
+	cout << left << setw(w) << "Months to Project: " << right << setw(w1) << months << endl << endl;
+}
+
+
+
+
+void Projection(int months, int income, double totalTax, int w) {
+	const int max = 2000;
+	const int min = 500;
+	double net;
+	double expenses;
+
+	double totalIncome = 0;
+	double totalExpenses = 0;
+	double totalNet = 0;
+	double finalTax = 0;
+
+	cout << "Projection" << endl;
+	cout << "-----------------------------------------------------------------" << endl;
+
+	cout << right << setw(w) << "Month" << right << setw(w) << "Income ($)" << right << setw(w) << "Expenses ($)"
+		<< right << setw(w) << "Tax ($)" << right << setw(w) << "Net ($)" << endl;
+
+	for (int i = 1; i <= months; i++) {
+		expenses = (rand() % (max - min + 1)) + min;
+		net = income - expenses - totalTax;
+
+
+		cout << right << setw(w) << i << right << setw(w) << income << right << setw(w) << expenses
+			<< right << setw(w) << totalTax << right << setw(w) << net << endl;
+
+		totalIncome = totalIncome + income;
+		totalExpenses = totalExpenses + expenses;
+		totalNet = totalNet + net;
+		finalTax = finalTax + totalTax;
+
+	}
+
+	cout << endl;
+	cout << "Totals" << endl;
+	cout << "-----------------------------------------------------------------" << endl;
+	cout << right << setw(26) << totalIncome << right << setw(w) << totalExpenses << right << setw(w) << finalTax
+		<< right << setw(w) << totalNet << endl;
+}
+
+int main() {
+
+	//header 
+	cout << "Rental Rambos monetary calculator" << endl;
+	cout << "-----------------------------------------------------------------" << endl << endl;
+
+	
+
+	//declare variables
+	int value; //in 1000s of dollars after user inputs multiply by 1000
+	const int highVal = 1000;
+	const int lowVal = 100;
+	double tax; //percentage 
+	const double highTax = 7;
+	const double lowTax = 1;
+	int renters;
+	const int highRenters = 8;
+	const int lowRenters = 0;
+	int months;
+	const int highMonths = 36;
+	const int lowMonths = 1;
+
+	
+
+	const int w = 25;
+	const int w1 = 15;
+
+	cout << fixed << setprecision(2);
+
+
+
+	//prompt for value
+	cout << "Value of the poperty in 1000s: ";
+	cin >> value;
+
+	while (value < lowVal || value > highVal) {
+		cout << "Error: Invalid property value" << endl;
+		cout << "Enter a valid property value: ";
+		cin >> value;
+	}
+
+	value = value * 1000;
+
+	//prompt for tax
+	cout << "Property Tax Percentage: ";
+	cin >> tax;
+
+	while (tax < lowTax || tax >  highTax) {
+		cout << "Error: Invalid tax percentage" << endl;
+		cout << "Enter a valid property tax value: ";
+		cin >> tax;
+	}
+
+	//prompt for renters
+	cout << "How many renters: ";
+	cin >> renters;
+
+	while (renters < lowRenters || renters > highRenters) {
+		cout << "Error: Invalid number of renters" << endl;
+		cout << "Enter a valid number of renters: ";
+		cin >> renters;
+	}
+
+	//prompt for months
+	cout << "How many months: ";
+	cin >> months;
+	
+
+	while (months < lowMonths || months > highMonths) {
+		cout << "Error: Invalid number of months" << endl;
+		cout << "Enter a valid number of months: ";
+		cin >> months;
+	}
+
+	cout << endl;
+
+	int income = renters * 1000;
+	double totalTax = value * (tax / 100) / 12;
+
+	//projection table
+	projectionParameters(value, tax, renters, months, w, w1);
+
+	//projection
+	Projection(months, income, totalTax, 13);
+
+	//end
+	cout << endl << "End of Rental Rambos";
+
+
+}

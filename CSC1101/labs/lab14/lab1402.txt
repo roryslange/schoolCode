@@ -1,0 +1,119 @@
+//==========================================================
+//
+// Title:      Hidden Halos
+// Course:     CSC 1101
+// Lab Number: 14-2
+// Author:     rory lange
+// Date:       3/13/21
+// Description:
+//   This C++ console application encodes and decodes text.
+// It prompts for and gets from the user a string.  It then
+// encodes the string by:
+//   -Converting each character to an integer.
+//   -Adding 57 to the integer value.
+//   -Mod'ing the integer value by 256.
+// It then decodes the string, and prints the:
+//   -Input string
+//   -The encoded string
+//   -The decoded string
+// The application continues to prompt the user for input 
+// strings until sentinel value 'z' is entered.
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+//==========================================================
+// Global constants and variables
+//==========================================================
+
+const int W = 25;
+const int Shift = 57;
+const int MaxValue = 256;
+
+//==========================================================
+// encode
+//==========================================================
+
+string encode(string message) {
+	//get char from string
+	//cast char to int
+	//add 57
+	//mod by 256
+	//cast int back to char
+
+	int a;
+	char end;
+	string encode;
+
+	for (int i = 0; i < message.length(); i++) {
+		a = (int) message[i];
+		a = a + Shift;
+		a = a % MaxValue;
+		end = (char) a;
+		encode = encode + end;
+	}
+	
+	return encode;
+}
+
+//==========================================================
+// decode
+//==========================================================
+
+string decode(string message) {
+	int a;
+	char end;
+	string decoded;
+
+	for (int i = 0; i < message.length(); i++) {
+		a = (int)message[i];
+		a = a - Shift;
+		a = a % MaxValue;
+		end = (char)a;
+		decoded = decoded + end;
+	}
+
+	return decoded;
+}
+
+//==========================================================
+// main
+//==========================================================
+int main()
+{
+	//declare local variables and constants
+	string input;
+	int counter = 0;
+
+	//header
+	cout << "Welcome to Hidden Halos" << endl;
+	cout << "-----------------------" << endl << endl;
+
+	while (input != "z") {
+
+		//get user input
+		cout << "Enter a string to be encoded (z to exit): ";
+		getline(cin, input);
+
+		if (input == "z") {
+			cout << endl;
+			break;
+		}
+
+		cout << endl << left << setw(W) << "String: " << left << setw(W) << input << endl;
+		cout << left << setw(W) << "Encoded String: " << left << setw(W) << encode(input) << endl;
+		cout << left << setw(W) << "Decoded String: " << left << setw(W) << decode(encode(input)) << endl << endl;
+
+		counter++;
+	}
+
+	cout << "Encodings performed: " << counter << endl << endl;
+
+	//close
+	cout << "End of calculations for Hidden Halos" << endl;
+}

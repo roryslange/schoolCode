@@ -1,0 +1,68 @@
+//==========================================================
+// Title:      Lab15
+// Course:     CSC 1101
+// Lab Number: 15
+// Author:     rory lange	
+// Date:       3/23/21
+// Description:
+//   This console application creates a function to compare
+//strings.
+//INPUT: Two strings and the lengths of the two strings
+//OUTPUT: An integer. If the numbers is greater than or equal
+//		  to zero its the position that differs in the strings.
+//		  If the number is -1 the strings are equivalent
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+//Use this function declaration
+int stringChecker(string string1, int length1, string string2, int length2) {
+
+	if (length1 > length2) {
+		for (int i = 0; i < length2; i++) {
+			if (string1[i] != string2[i])
+				return i;
+		}
+	}
+	else if (length2 > length1) {
+		for (int i = 0; i < length2; i++) {
+			if (string1[i] != string2[i])
+				return i;
+		}
+	}
+	else {
+		for (int i = 0; i < length2; i++) {
+			if (string1[i] != string2[i])
+				return i;
+		}
+		return -1;
+	}
+}
+
+int main() {
+
+	string str1, str2;
+	int charNum;
+	
+	cout << "Enter your first string: ";
+	getline(cin, str1);
+
+	cout << "Enter your second string: ";
+	getline(cin, str2);
+	cout << endl;
+
+	//Call the function
+	charNum = stringChecker(str1, str1.length(), str2, str2.length());
+	
+	//Compare the return value from the function
+	if (charNum == -1)
+		cout << "Your function returned the value -1, therefore the messages are equivalent" << endl;
+	else
+		cout << "The strings are different at position " << charNum << endl;
+}
+
+

@@ -1,0 +1,112 @@
+//==========================================================
+//
+// Title:      Happy Hoopsters
+// Course:     CSC 1101
+// Lab Number: 18-1
+// Author:     rory lange
+// Date:       4/1/21
+// Description:
+//   This C++ console application tracks scoring @@@
+//
+//==========================================================
+#include <cstdlib>  // For several general-purpose functions
+#include <fstream>  // For file handling
+#include <iomanip>  // For formatted output
+#include <iostream>  // For cin, cout, and system
+#include <string>  // For string data type
+using namespace std;  // So "std::cout" may be abbreviated to "cout"
+
+//global variables
+string team1 = "Celtics";
+string team2 = "Heat";
+const int W = 10;
+const int W1 = 7;
+int total1;
+int total2;
+const string fileName = "scores.txt";
+const int ArrSize = 4;
+
+//-------------------------------------------------------------------------------------------------------
+
+void resetScores(int scores[]) {
+    for (int i = 0; i < ArrSize; i++) {
+        scores[i] = 0;
+        //cout << scores[i] << endl;
+    }
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+void printScores(int team1[], int team2[], int quarter) {
+    total1 = 0;
+    total2 = 0;
+
+    cout << "Score after quarter " << quarter << endl;
+    cout << left << setw(W) << "Celtics";
+
+    for (int i = 0; i < quarter; i++) {
+       cout << right << setw(W1) << team1[i];
+       total1 = total1 + team1[i];
+    }
+    cout << right << setw(W) << total1;
+
+    cout << endl << left << setw(W) << "Heat";
+    for (int i = 0; i < quarter; i++) {
+       cout << right << setw(W1) << team2[i];
+       total2 = total2 + team2[i];
+    }
+    cout << right << setw(W) << total2;
+    cout << endl;
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+int main() {
+
+    //declare variables
+    int team1[ArrSize];
+    int team2[ArrSize];
+    ofstream outputFile;
+    string n;
+    int game = 0;
+
+    outputFile.open(fileName);
+
+    //header
+    cout << "Welcome to happy hoopsters" << endl;
+    cout << "--------------------------" << endl << endl;
+
+    if (!outputFile.is_open())
+        cout << "Error opening file" << endl;
+    else {
+        //sentinel
+        while (n != "n") {
+            game++;
+            resetScores(team1);
+            resetScores(team2);
+
+            for (int i = 1; i <= 4; i++) {
+                cout << "Game " << game << ", quarter " << i << endl;
+                cout << "Enter Celtics score: ";
+                cin >> team1[i-1];
+                cout << "Enter Heat score: ";
+                cin >> team2[i-1];
+                printScores(team1, team2, i);
+                cout << endl;
+            }
+
+            cout << "Game " << game << " final score: " << "Celtics " << total1
+                << ", Lakers " << total2 << endl << endl;
+
+            outputFile << "Game " << game << " final score: " << "Celtics " << total1
+                << ", Lakers " << total2 << endl;
+
+            cout << "Enter another game (y or n)? ";
+            cin >> n;
+        }
+        
+        cout << game << " games written to file 'scores.txt'" << endl;
+        cout << "end of Happy Hoopsters" << endl;
+
+    }
+}

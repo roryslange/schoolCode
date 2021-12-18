@@ -1,0 +1,23 @@
+//mission 2 written by rory lange in collaboration with 3 others mentioned in doc
+
+
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+
+int main() {
+	char input;
+
+	cout << "Enter W, S, or U: ";
+	cin >> input;
+
+	while (input != 'W' && input != 'S' && input != 'U') {
+		cout << "Error: your character is an invalid value" << endl;
+		cout << "Enter a valid character: ";
+		cin >> input;
+	}
+}

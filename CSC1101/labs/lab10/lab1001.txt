@@ -1,0 +1,62 @@
+//==========================================================
+//
+// Title:      lab10
+// Course:     CSC 1101
+// Lab Number: 10
+// Author:     rory lange
+// Date:       2/18/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+
+
+int main() {
+
+	//header
+	cout << "Welcome to Suess Starlings Word counter." << endl;
+	cout << "----------------------------------------" << endl << endl;
+
+	//declare variables
+	string text = "You'll be on your way up! You'll be seeing great sights! You'll join the high fliers who soar high heights.";
+	int length = text.length();
+	int words = 0;
+	int sentences = 0;
+	const int w = 25;
+	const int w1 = 15;
+	int i = 0;
+
+
+	while (i <= length) {
+		switch (text[i]) {
+			case ' ':
+				words++;
+			case '! ':
+				sentences++;
+		}
+		i++;
+	}
+
+	//output 
+	cout << "Text: " << endl;
+	cout << text << endl << endl;
+
+	cout << setw(w) << left << "Length: " << setw(w1) << right << length << endl;
+	cout << setw(w) << left << "Words: " << setw(w1) << right << words << endl;
+	cout << setw(w) << left << "Sentences: " << setw(w1) << right << sentences << endl;
+
+	//close
+	cout << "End of Application" << endl;
+
+
+
+
+}

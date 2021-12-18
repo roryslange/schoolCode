@@ -1,0 +1,54 @@
+//==========================================================
+//
+// Title:      lab08
+// Course:     CSC 1101
+// Lab Number: 08
+// Author:     rory lange
+// Date:       2/11/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main()
+{
+
+  // Declare variables
+	const int desert = 20;
+	const int rain = 100;
+	const int comfort = 60;
+
+	int humidity;
+
+  // Show application header
+  cout << "HUMIDITY CALCULATOR" << endl;
+  cout << "--------------------------" << endl << endl;
+
+  //get user input
+  cout << "Enter the current ground-level humidity (%): ";
+  cin >> humidity;
+  cout << endl;
+
+  if (humidity < 0)
+	  cout << "Error: THE HUMIDITY LEVEL MUST BE >= 0." << endl;
+  else if (humidity >= 0 && humidity <= desert)
+	  cout << "You must be in the desert!" << endl;
+  else if (humidity > desert && humidity <= comfort)
+	  cout << "Thats a comfortable level." << endl;
+  else if (humidity > comfort && humidity <= rain)
+	  cout << "Soon its gonna rain!" << endl;
+  else
+	  cout << "Error: THE LEVEL MUST BE LESS THAN OR EQUAL TO 100" << endl;
+
+
+  // Show application close
+  cout << "\NEND OF MOISTURE MADCAPS CALCULATIONS..." << endl;
+
+}

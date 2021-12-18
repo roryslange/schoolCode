@@ -1,0 +1,62 @@
+//==========================================================
+//
+// Title:      lab 13
+// Course:     CSC 1101
+// Lab Number: 12
+// Author:     rory lange
+// Date:       3/9/21
+// Description: reading and writing to file in the same lab
+
+// 
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main()
+{
+	//declare variables
+	const string fileName = "text.txt";
+	string input;
+
+	ofstream outputFile; //variable for outputfile
+
+	//create new output file
+	outputFile.open(fileName);
+
+	if (!outputFile.is_open())
+		cout << "Error opening file" << endl;
+
+	while (outputFile.good())
+	{
+		for (int i = 1; i <= 5; i++) {
+			outputFile << "Writing line " << i << " here" << endl;
+		}
+
+		outputFile.close();
+	}
+
+	ifstream inputFile;
+
+	inputFile.open(fileName);
+	
+	//open input file
+
+	string line;
+	while (inputFile.good())
+	{
+		getline(inputFile, line);
+		cout << line << endl;
+
+	}
+
+	//remember to close file when done!
+	inputFile.close();
+
+	//close
+	cout << "end of calculations for lab13" << endl;
+
+}

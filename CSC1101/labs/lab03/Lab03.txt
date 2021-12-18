@@ -1,0 +1,116 @@
+//==========================================================
+//
+// Title:      Lab 03
+// Course:     CSC 1101
+// Lab Number: 03
+// Author:     rory lange
+// Date:       1/26/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+#include <cstring>
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+string encode(string statement, int length);
+string decode(string statement, int length);
+
+int main()
+{
+	//Show application header
+	cout << "Welcome to my Application!" << endl;
+	cout << "--------------------------" << endl << endl;
+
+	// Declare variables
+	string statement = "dont eat tide pods";
+	string cipher;
+	string decipher;
+	int numLetters;
+	int choice = 3;
+	bool flag = false;
+	
+	//Length of your statement
+	numLetters = statement.length();
+	
+	//Call the functions needed
+	cipher = encode(statement, numLetters + 1);
+	decipher = decode(cipher, numLetters + 1);
+
+	do {
+		cout << "Question of the day" << endl;
+		cout << "Which of the following is NOT a keyword (Your answer is gra/ded): \n";
+		cout << "1. namespace \t 2. double \t 3. length \t 4. return \t 5. false\n";
+		cout << "Your choice: ";
+		cin >> choice;
+	} while (choice < 1 || choice >5);
+
+	flag = (choice == 3) ? true : false;
+
+	//Print coded and decoded message to the screen
+	cout << "\nYour coded message was: " << cipher << endl;
+	cout << "Your decoded message was: " << decipher << endl;
+	cout << "Your answer to the multiple choice question was: " << choice << endl;
+	cout << "Flag = " << flag << endl;
+
+	// Show application close
+	cout << "\nEnd of my Application" << endl;
+
+}
+
+//Add mulit-line comment
+
+/*
+The function encode() alters a statement by moving each character in the
+statement 3 spaces to right then returns the altered statement to the
+program as a string
+*/
+
+string encode(string statement, int length) {
+	//Declare variable
+	string message = "";
+
+	// Declaring character array for use
+	char statement_array[100];
+
+	// Copys string into character array for easy usage
+	strcpy_s(statement_array, statement.c_str());
+
+	for (int i = 0; i < length; i++) {
+		statement_array[i] = (char)(statement_array[i] + 2);
+		message = message + statement_array[i];
+	}
+
+	return message;
+}
+
+//Add mulit-line comment
+
+/*
+The function decode() alters a statement by moving each character in the 
+statement 3 spaces to left then returns the altered statement to the 
+program as a string
+*/
+
+string decode(string statement, int length) {
+	//Declare variable
+	string message = "";
+
+	// Declaring character array for use
+	char statement_array[100];
+
+	// Copys string into character array for easy usage
+	strcpy_s(statement_array, statement.c_str());
+
+	for (int i = 0; i < length; i++) {
+		statement_array[i] = (char)(statement_array[i] - 2);
+		message = message + statement_array[i];
+	}
+
+	return message;
+}

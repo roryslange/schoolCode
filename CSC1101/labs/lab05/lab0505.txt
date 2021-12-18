@@ -1,0 +1,70 @@
+//==========================================================
+//
+// Title:      lab 05
+// Course:     CSC 1101
+// Lab Number: 05
+// Author:     rory lange
+// Date:       2/2/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main()
+{
+  
+  // Declare constants
+  // your code here ...
+	const int COLFMT1 = 15;
+	const int COLFMT2 = 10;
+  
+  // Declare variables
+  // your code here ...
+	string name;
+	double height;
+	double BMI;
+	double weight;
+
+
+  // Set real-number precision
+  // your code here ...
+	cout << fixed << setprecision(1);
+
+  // Show application header
+  // your code here ...
+	cout << "BMI CALCULATOR FROM BMI BUDDY" << endl << endl;
+
+  // Prompt for and get inputs
+	cout << "Enter your entire name: ";
+	getline(cin, name);
+	cout << "Enter height (in): ";
+	cin >> height;
+	cout << "Enter weight (lb): ";
+	cin >> weight;
+
+  // Calculate BMI and metric conversions
+  // your code here ...
+
+	BMI = (703 * weight) / (height * height);
+
+  // Print inputs and outputs
+  cout << endl;
+	cout << setw(COLFMT1) << left << "Name: " << setw(COLFMT2) << right << name << endl;
+  // your code here ...
+	cout << setw(COLFMT1) << left << "height (cm): " << setw(COLFMT2) << right << (float) height * 2.54 << endl;
+	cout << setw(COLFMT1) << left << "weight (kg): " << setw(COLFMT2) << right << (float) weight * .45 << endl;
+	cout << setw(COLFMT1) << left << "BMI: " << setw(COLFMT2) << right << BMI << endl << endl;
+
+
+  // Show application close
+  // your code here ...
+	cout << "END OF CALCULATIONS FOR BMI BUDDY";
+
+}

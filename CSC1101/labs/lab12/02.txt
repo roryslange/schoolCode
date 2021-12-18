@@ -1,0 +1,72 @@
+//==========================================================
+//
+// Title:      Utterly Urban
+// Course:     CSC 1101
+// Lab Number: 12-2
+// Author:     rory lange
+// Date:       3/4/21
+// Description:
+//   This C++ console application that prompts the user for
+// city names and writes them to file Cities.txt.  The file
+// will contain one city per line.  It does not have a 
+// header line, only detail lines.  It attempts to create
+// (open) the file.  If it doesn't open, the application 
+// prints an error message.  If it does open, it prints a
+// file-reading message.  It uses a sentinel loop to 
+// continue prompting the user for city names until they 
+// enter the sentinel value.  If the sentinel value wasn't
+// entered, it prompts for and gets from the user a city 
+// name and writes it to one line of the file.
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main()
+{
+	//header
+	cout << "Welcome to Utterly Urban" << endl;
+	cout << "------------------------" << endl << endl;
+
+	//declare variables
+	string input;
+	const string fileName = "cities.txt";
+	ofstream file;
+	char go = 'y';
+	int counter = 0;
+
+	cout << "writing lines to file " << fileName << " ..." << endl << endl;
+
+	file.open(fileName);
+
+	//sentinel
+	while (go != 'n') {
+
+		//get inputs
+		cout << "Enter a city (no spaces): ";
+		cin >> input;
+
+		if (!file.is_open()) {
+			cout << "Error opening file." << endl;
+			break;
+		}
+		else {
+			file << input << "\n";
+		}
+
+		counter++;
+		//prompt for sentinel
+		cout << "Would you like to enter another city (y/n)?";
+		cin >> go;
+
+	}
+
+	cout << counter << " cities were entered." << endl;
+
+	//end
+	cout << "End of calculations" << endl;
+}

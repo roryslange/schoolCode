@@ -1,0 +1,62 @@
+//==========================================================
+//
+// Title:      lab09
+// Course:     CSC 1101
+// Lab Number: 09
+// Author:     rory lange
+// Date:       2/16/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main() {
+
+	//header
+	cout << "Welcome to Switch Statements" << endl;
+	cout << "---------------------------------------" << endl << endl;
+
+	//declare variables
+	const char degree = 167;
+	char userInput;
+
+	//get user input
+	cout << "Enter a month (j,f,m): ";
+	cin >> userInput;
+	cout << endl;
+
+	//switch
+	switch (userInput) {
+	case 'j':
+		cout << "January Temps" << endl;
+		cout << "High: " << "0" << degree << endl;
+		cout << "Low: " << "-6" << degree << endl;
+		cout << "rain: " << "13.6mm" << endl;
+		break;
+	case 'f':
+		cout << "February Temps" << endl;
+		cout << "High: " << "1" << degree << endl;
+		cout << "Low: " << "-6" << degree << endl;
+		cout << "rain: " << "12.9mm" << endl;
+		break;
+	case 'm':
+		cout << "March Temps" << endl;
+		cout << "High: " << "7" << degree << endl;
+		cout << "Low: " << "-2" << degree << endl;
+		cout << "rain: " << "13.0mm" << endl;
+		break;
+	default:
+		cout << "Invalid input" << endl;
+		break;
+	}
+
+	//close
+	cout << "End of my application" << endl;
+}

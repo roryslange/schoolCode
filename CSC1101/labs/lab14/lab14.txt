@@ -1,0 +1,88 @@
+//==========================================================
+//
+// Title:      Feathery Finales
+// Course:     CSC 1101
+// Lab Number: 14-1
+// Author:     rory lange
+// Date:       3/11/21
+// Description:
+//   This C++ console application simulates the landing 
+// parameters of a NASA spacecraft.  Two of the parameters 
+// we can control:
+//   -Distance in meters from the planet when we begin 
+//    slowing the spacecraft down.
+//   -Deceleration rate at which the spacecraft slows down 
+//    (this can be 0.09 or 0.95).
+// Two of the parameters we cannot control:
+//   -The safe landing speed (less than or equal to 2 meters
+//    per minute.
+//   -The spacecraft speed before slowing down (200 meters 
+//    per minute).
+// It loops to run the simulation.  It continues to loop as
+// long as the distance is greater than zero.  Within the 
+// loop, the appliation updates the distance (distance – 
+// speed) and speed (speed x deceleration rate).  It then 
+// print in one row the following:
+//   -Minute
+//   -Distance
+//   -Speed
+// After the loop, it tests whether the current speed is 
+// less than or equal to the safe landing speed.  If not, it
+// prints a crash message.  If so, it prints a safe landing
+// message.
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+void SafeSpeed(double speed, const double SafeLandingSpeed = 2) {
+	//test whether the curent speed is less than or equal to the safe landing speed
+	//if not print a crash message, if so print a safe landing message
+	//constants for decel and column widths
+	//all real number s to ten decimal places
+
+	if (speed > SafeLandingSpeed)
+		cout << endl << "You crashed!" << endl;
+	else
+		cout << endl <<"You landed safely!" << endl;
+}
+
+int main()
+{
+	//define variables and constants
+	const double Deceleration = .9;
+	const int w = 20;
+	const int w1 = 10;
+	double speed = 200;
+	double distance = 1990;
+	int minute = 1;
+
+	cout << fixed << setprecision(10);
+	
+	//header
+	cout << "Welcome to Feathery Finales" << endl;
+	cout << "---------------------------" << endl << endl;
+
+	cout << setw(w1) << right << "Minute" << setw(w) << right << "Distance" << setw(w) << right << "Speed" << endl;
+
+	while (distance > 0) {
+
+		distance = distance - speed;
+		speed = speed * Deceleration;
+		cout << setw(w1) << right << minute << setw(w) << right << distance << setw(w) << right << speed << endl;
+		
+		
+		
+		minute++;
+	}
+
+	//say whether the ship crashes or lands safely
+	SafeSpeed(speed);
+
+	//app close
+	cout << endl << "End of calculations for Feathery Finales" << endl;
+}

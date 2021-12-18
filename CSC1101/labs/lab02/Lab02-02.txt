@@ -1,0 +1,56 @@
+//==========================================================
+//
+// Title:      lab 02 02
+// Course:     CSC 1101
+// Lab Number: 02 02
+// Author:     rory lange
+// Date:       1/21/21
+// Description:
+//   <brief description of application including its inputs,
+// processing, and outputs>
+//
+//==========================================================
+#include <cstdlib> // For several general-purpose functions
+#include <fstream> // For file handling
+#include <iomanip> // For formatted output
+#include <iostream> // For cin, cout, and system
+#include <string> // For string data type
+using namespace std; // So "std::cout" may be abbreviated to "cout"
+
+int main()
+{
+
+  // Declare variables
+  string u1 = "U+00B0";
+  string u1desc = "Degree sign";
+
+  // your codes and descriptions here ...
+  string u2 = "U+0052";
+  string u2desc = "R";
+  string u3 = "U+0053";
+  string u3desc = "S";
+  string u4 = "U+004C";
+  string u4desc = "L";
+  string u5 = "U+00B5";
+  string u5desc = "micro sign";
+  string u6 = "U+0152";
+  string u6desc = "Latin Capital Ligature Oe";
+
+  // Show application header
+  // your code here ...
+
+  // Prompt for and get hexadecimal number
+  cout << "Unicode   Description" << endl;
+
+  // your spacing here ...
+  cout << u1 << "    " << u1desc << endl;
+  cout << u2 << "    " << u2desc << endl;
+  cout << u3 << "    " << u3desc << endl;
+  cout << u4 << "    " << u4desc << endl;
+  cout << u5 << "    " << u5desc << endl;
+  cout << u6 << "    " << u6desc << endl;
+
+  // Show application close
+  // your code here ...
+
+}
