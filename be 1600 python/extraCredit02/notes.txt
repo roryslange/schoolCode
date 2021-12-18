@@ -1,0 +1,2 @@
+use while loops to get info from a file into a list
+    he talks about it in csv video

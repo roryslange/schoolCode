@@ -1,0 +1,101 @@
+pyton midterm cheat sheet
+rory lange
+
+machine language - binary language that computers understand
+compiler - combines source code into machine code
+interpreters - translates instructions in a high level language into source code
+
+addition/ subtraction - +,-
+multiplication - *
+exponent - **
+division:
+	quotient - /
+	integer quotient - //
+	return remainder - %
+floating point - +,-,*,/
+
+mix integers and floats
+	returns a float
+
+int(3.9999) = 3
+float(3) = 3.0
+
+names can include letter, number, or an _
+	must start with letter or _
+	
+python is case sensitive
+
+functions
+	need to know how to return a value and call a function
+
+range
+	range(stop) - start at 0 until stop-1
+	range(start,stop) - begins at start until stop-1
+	range(start,stop,step) - begins at start until stop-1 counting by step
+
+random
+	random() - float in range [0,1)
+	uniform() - float in range [a,b)
+	randrange() - int in range [a,b)
+	randint() - int in range [a,b]
+	randrange(start,stop,step) - random int in range specified by the three parameters
+
+boolean expressions
+	> greater than
+	< less than
+	<= less than equal to
+	>= greater than equal to
+	== equal
+	!= not equal
+
+	x and y - both need to be true to return true
+	x or y - only one needs to be true to return true
+	not x - if x is false return true
+
+string
+	+ - concatenate
+	* - repeat
+	[i] - index
+	[i:j] - slice
+	len() - length of string
+	in - returns true if the string contains the argument
+	not in - returns false if in is true
+	
+	count() - number of occurences of item in string
+	upper() - converts to uppercase
+	lower() - converts to lowercase
+	index() - returns index of first occurrence of item error if not found
+	find() - returns index of first occurrence or -1 if not found
+	replace(old, new) - replaces all occurences of old with new
+	
+character
+	ord() - converts int to character
+	chr() - converts character to int
+	str() - converts number into a string
+
+strings are homogeneous
+lists, tuples, dics are heterogeneous (multiple data types)
+
+lists
+	same operators as string 
+	del - deletes an operator
+
+	list[] - creates a list
+	append() - adds something to the end of a list
+	sort() - sorts the list alphabetic or numeric
+	clear - clears list
+	split - takes a string and returns a list of where it was split
+
+dictionaries
+	nonsequential (order doesnt matter)
+	strings and lists order does matter
+	keys() - returns a key object
+	values() - returns a value object
+	items() - returns an item
+
+tuples
+	immutable
+
+
+
+	

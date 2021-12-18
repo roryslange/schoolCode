@@ -1,0 +1,27 @@
+all unique words in a specific .txt file
+
+words.txt
+['cheer', 'up', 'brian', 'know', 'what', 'say', 'some', 'are', 'bad', 'can', 'really', 'mad', 'other', 'swear', 'curse', 'chewing', "life's", 'gristle', 'grumble', 'give', "this'll", 'help', 'turn', 'out', 'best', 'hey', 'light', 'if', 'seems', 'jolly', 'rotten', "there's", 'something', "you've", 'forgotten', 'to', 'laugh', 'smile', 'dance', 'sing', 'feeling', 'dumps', 'be', 'silly', 'chumps', 'purse', 'lips', 'thing', 'right', 'is', 'quite', 'absurd', 'an', "death's", 'final', 'word', 'must', 'face', 'curtain', 'with', 'bow', 'forget', 'about', 'your', 'sin']
+words1.txt
+['give', 'audience', 'grin', 'enjoy', 'chance', 'hour', 'so', 'death', 'just', 'before', 'draw', 'your', 'terminal', 'breath', 'piece', "o'", 'sxit', 'when', "death's", 'joke', 'true', "you'll", 'see', 'all', 'show', 'keep', "'em", 'laughing', 'as', 'remember', 'that', 'is', 'brian', 'cheer', 'up', 'worse', 'things', 'happen', 'sea', 'know', 'i', 'mean', 'do', 'lose', 'from', 'back', 'lost']
+-----------------------------------------------------------------------------------------------
+
+all unique words in both files 
+
+['say', 'some', 'are', 'bad', 'can', 'really', 'mad', 'other', 'swear', 'curse', 'chewing', 'gristle', 'grumble', "this'll", 'help', 'turn', 'out', 'best', 'hey', 'light', 'if', 'seems', 'jolly', 'rotten', "there's", 'something', "you've", 'forgotten', 'smile', 'dance', 'sing', 'feeling', 'dumps', 'be', 'silly', 'chumps', 'purse', 'lips', 'thing', 'quite', 'absurd', 'an', 'final', 'word', 'must', 'face', 'curtain', 'with', 'bow', 'forget', 'about', 'sin', 'audience', 'grin', 'enjoy', 'chance', 'hour', 'so', 'death', 'before', 'draw', 'terminal', 'breath', 'piece', "o'", 'sxit', 'joke', 'true', "you'll", 'see', 'all', 'show', 'keep', "'em", 'laughing', 'as', 'remember', 'that', 'worse', 'happen', 'sea', 'i', 'mean', 'do', 'lose', 'from', 'back', 'lost']
+-----------------------------------------------------------------------------------------------
+
+all words in both files
+['cheer', 'up', 'brian', 'you', 'know', 'what', 'they', 'say', 'some', 'things', 'in', 'life', 'are', 'bad', 'can', 'really', 'make', 'mad', 'other', 'just', 'swear', 'and', 'curse', 'when', "you're", 'chewing', 'on', "life's", 'gristle', "don't", 'grumble', 'give', 'a', 'whistle', "this'll", 'help', 'turn', 'out', 'for', 'the', 'best', 'hey', 'always', 'look', 'bright', 'side', 'of', 'light', 'if', 'seems', 'jolly', 'rotten', "there's", 'something', "you've", 'forgotten', "that's", 'to', 'laugh', 'smile', 'dance', 'sing', 'feeling', 'dumps', 'be', 'silly', 'chumps', 'purse', 'lips', 'thing', 'right', 'is', 'quite', 'absurd', 'an', "death's", 'final', 'word', 'must', 'face', 'curtain', 'with', 'bow', 'forget', 'about', 'your', 'sin', 'audience', 'grin', 'enjoy', 'it', "it's", 'last', 'chance', 'hour', 'so', 'death', 'before', 'draw', 'terminal', 'breath', 'piece', "o'", 'sxit', 'at', 'joke', 'true', "you'll", 'see', 'all', 'show', 'keep', "'em", 'laughing', 'as', 'go', 'remember', 'that', 'come', 'worse', 'happen', 'sea', 'i', 'mean', 'do', 'have', 'lose', 'from', 'nothing', 'back', 'lost']
+-----------------------------------------------------------------------------------------------
+
+return words that are in the first file but not the second
+['say', 'some', 'are', 'bad', 'they', 'can', 'really', 'mad', 'other', 'make', 'swear', 'curse', 'chewing', 'gristle', 'grumble', "this'll", 'help', 'turn', 'out', 'best', 'hey', 'light', 'if', 'seems', 'jolly', 'rotten', "there's", 'something', "you've", 'forgotten', 'smile', 'dance', 'sing', 'feeling', 'in', 'dumps', "don't", 'be', 'silly', 'chumps', 'purse', "you're", 'lips', 'whistle', "that's", 'thing', 'for', 'quite', 'absurd', 'an', 'final', 'word', 'must', 'face', 'curtain', 'with', 'bow', 'forget', 'about', 'sin']
+-----------------------------------------------------------------------------------------------
+
+return words that are in the second file but not the first
+['audience', 'grin', 'enjoy', 'chance', 'hour', 'so', 'death', 'before', 'draw', 'terminal', 'breath', 'piece', "o'", 'sxit', 'it', 'joke', 'true', "you'll", 'see', "it's", 'all', 'show', 'keep', "'em", 'laughing', 'as', 'remember', 'that', 'last', 'worse', 'happen', 'at', 'sea', 'i', 'mean', 'do', 'lose', 'come', 'from', 'go', 'back', 'have', 'lost', 'nothing']
+-----------------------------------------------------------------------------------------------
+
+return words that appear in either the first or the second file but not both
+['say', 'some', 'are', 'bad', 'they', 'can', 'really', 'mad', 'other', 'make', 'swear', 'curse', 'chewing', 'gristle', 'grumble', "this'll", 'help', 'turn', 'out', 'best', 'hey', 'light', 'if', 'seems', 'jolly', 'rotten', "there's", 'something', "you've", 'forgotten', 'smile', 'dance', 'sing', 'feeling', 'in', 'dumps', "don't", 'be', 'silly', 'chumps', 'purse', "you're", 'lips', 'whistle', "that's", 'thing', 'for', 'quite', 'absurd', 'an', 'final', 'word', 'must', 'face', 'curtain', 'with', 'bow', 'forget', 'about', 'sin', 'audience', 'grin', 'enjoy', 'chance', 'hour', 'so', 'death', 'before', 'draw', 'terminal', 'breath', 'piece', "o'", 'sxit', 'it', 'joke', 'true', "you'll", 'see', "it's", 'all', 'show', 'keep', "'em", 'laughing', 'as', 'remember', 'that', 'last', 'worse', 'happen', 'at', 'sea', 'i', 'mean', 'do', 'lose', 'come', 'from', 'go', 'back', 'have', 'lost', 'nothing']
